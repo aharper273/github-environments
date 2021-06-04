@@ -1,0 +1,31 @@
+name: Deploy ASP.NET Core Web Application to jobsandenvironments
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: echo dev
+        run: echo "dev"
+  deployintt:
+    needs: build
+    environment:
+      name: int
+      url: test.int
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: echo int
+        run: echo "int"
+    needs: deploydev
+    environment:
+      name: prod
+      url: test.prod
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: echo int
+        run: echo "int"
