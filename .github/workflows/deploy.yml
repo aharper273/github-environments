@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: echo dev
         run: echo "dev"
-  deployintt:
+  deployint:
     needs: build
     environment:
       name: int
@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: echo int
         run: echo "int"
-    needs: deploydev
+    needs: deployint
     environment:
       name: prod
       url: test.prod
