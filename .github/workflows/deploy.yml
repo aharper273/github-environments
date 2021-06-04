@@ -20,6 +20,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: echo int
         run: echo "int"
+  deployprod:
     needs: deployint
     environment:
       name: prod
