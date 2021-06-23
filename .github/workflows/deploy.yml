@@ -15,7 +15,6 @@ jobs:
     needs: build
     environment:
       name: int
-      url: test.int
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -25,7 +24,6 @@ jobs:
     needs: deployint
     environment:
       name: prod
-      url: test.prod
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
