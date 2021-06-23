@@ -20,6 +20,15 @@ jobs:
       - uses: actions/checkout@v2
       - name: echo int
         run: echo ${{ github.sha }}
+  deploystaging:
+    needs: build
+    environment:
+      name: staging
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: echo int
+        run: echo ${{ github.sha }}
   deployprod:
     needs: deployint
     environment:
